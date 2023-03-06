@@ -52,9 +52,9 @@ class _MyHomeState extends State<MyHome> {
     stream.cast();
     var length = await image!.length();
     var uri = Uri.parse('https://fakestoreapi.com/products');
-    var request = new http.MultipartRequest('POST', uri);
+    var request = http.MultipartRequest('POST', uri);
     request.fields['title'] = 'Static title';
-    var multiPort = new http.MultipartFile('image', stream, length);
+    var multiPort = http.MultipartFile('image', stream, length);
     request.files.add(multiPort);
     var response = await request.send();
     if (response.statusCode == 200) {
@@ -81,7 +81,7 @@ class _MyHomeState extends State<MyHome> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               GestureDetector(
-                onTap: getImage,
+                onTap: () => getImage(),
                 child: Container(
                     child: image == null
                         ? Center(
