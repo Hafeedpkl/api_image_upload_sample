@@ -85,7 +85,7 @@ class _MyHomeState extends State<MyHome> {
                 child: Container(
                     child: image == null
                         ? Center(
-                            child: Text('Pick Image'),
+                            child: Text('click to Pick Image'),
                           )
                         : Container(
                             child: Center(
